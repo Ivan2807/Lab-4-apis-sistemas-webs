@@ -9,3 +9,24 @@ en la linea 15 "Content-Type": "application-json" estaba asi y deberia estar asi
 
 
 los imports tambien estan malos ya que sin la configuracion adecuada no funciona, ya que necesita los puntos y comas al hacer  import
+
+  const texto = await fs.readFile(filePath, "utf-8") aqui necesitaba un await, sin el await se convierte en promesa 
+
+  const texto = await fs.readFile(filePath, "utf-8")
+res.end(JSON.stringify(JSON.parse(texto))) aqui necesitaba parsear para luego volverlo stringify
+
+res.writeHead(404, { "Content-Type": "text/plain" })
+res.end("Ruta no encontrada") aqui necesitaba un 404 porque el 200 significa que si lo encontro cuando no es asi
+
+if (req.url === "/api/student") {
+    try {
+        const filePath = path.join(process.cwd(), "datos.json")
+        const texto = await fs.readFile(filePath, "utf-8")
+        res.writeHead(200, { "Content-Type": "application/json" })
+        res.end(texto)
+    } catch (error) {
+        res.writeHead(500, { "Content-Type": "text/plain" })
+        res.end("Error al leer el archivo")
+    }
+    return
+} aqui se necesita un try catch 
