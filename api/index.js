@@ -1,6 +1,5 @@
+import { randomUUID } from 'crypto';
 import express from 'express';
-import cors from 'cors';
-import { getData } from './data.js';    
 const app = express();
 const PORT = 3000;
 app.use(express.json());
@@ -65,7 +64,7 @@ const err = (res, mensaje, status = 400) => res.status(status).json({ ok: false,
 // GET /  — Info de la API
 app.get("/", (req, res) => {
   ok(res, {
-    mensaje: "API de Videojuegos 🎮",
+    mensaje: "API de Videojuegos",
     version: "1.0.0",
     endpoints: {
       "GET    /api/videojuegos":            "Listar todos (filtro: ?genero=accion&plataforma=PC)",
@@ -226,5 +225,5 @@ app.use((req, res) => {
  
 // Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`🎮 API de Videojuegos corriendo en http://localhost:${PORT}`);
+  console.log(`API de Videojuegos corriendo en http://localhost:${PORT}`);
 });
