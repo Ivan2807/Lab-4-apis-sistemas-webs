@@ -30,3 +30,23 @@ if (req.url === "/api/student") {
     }
     return
 } aqui se necesita un try catch 
+
+
+INSTALAR DEPENDENCIAS 
+
+1. Instalar Node.js
+Descarga la versión LTS desde nodejs.org
+
+2. Navegar a la carpeta del proyecto
+
+3.Instalar las dependencias npm
+npm install
+npm install express y cors
+express (^5.2.1) - Framework web
+cors (^2.8.6) - Para permitir solicitudes cross-origin
+
+4. Ejecutar la API
+node "api/index.js"
+
+5. Verificar que funciona
+Abrir navegador en http://localhost:3000
