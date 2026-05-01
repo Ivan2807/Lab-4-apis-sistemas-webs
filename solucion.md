@@ -11,3 +11,6 @@ const texto = await fs.readFile(filePath, "utf-8") res.end(JSON.stringify(JSON.p
 res.writeHead(404, { "Content-Type": "text/plain" }) res.end("Ruta no encontrada") aqui necesitaba un 404 porque el 200 significa que si lo encontro cuando no es asi
 
 if (req.url === "/api/student") { try { const filePath = path.join(process.cwd(), "datos.json") const texto = await fs.readFile(filePath, "utf-8") res.writeHead(200, { "Content-Type": "application/json" }) res.end(texto) } catch (error) { res.writeHead(500, { "Content-Type": "text/plain" }) res.end("Error al leer el archivo") } return } aqui se necesita un try catch
+
+
+Ir a servidor bueno.js para codigo completo resuelto
